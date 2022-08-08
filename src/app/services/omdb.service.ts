@@ -12,8 +12,7 @@ export class OmdbService {
   constructor(private readonly http:HttpClient) { }
   getQuery(query:string):Observable<any>{
     const params = new HttpParams()
-    .set('i',query)
     .set('apikey',this.API_KEY)
-    return this.http.get<any>(`${this.API_URL}`,{params})
+    return this.http.get<any>(`${this.API_URL}${query}`,{params})
   }
 }

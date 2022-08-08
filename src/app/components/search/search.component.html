@@ -1,1 +1,30 @@
-<p>search works!</p>
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-12 text-right">
+      <label for="search" class="form-label pt-2" [(ngModel)]="busqueda" ngDefaultControl>Search movies</label>
+    </div>
+      <div class="col-8">
+        <input
+          type="text"
+          class="form-control"
+          id="search"
+          placeholder="Search...."
+        />
+      </div>
+      <div class="col-2">
+        <button type="button" class="btn btn-light" (click)="buscar()">Search</button>
+      </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-5 nt-2" *ngFor="let resultado of result">
+      <div class="card" style="width: 18rem;">
+        <img src="{{resultado.Poster}}" class="card-img-top" alt="Poster">
+        <div class="card-body">
+          <h5 class="card-title">{{resultado.Title}}</h5>
+          <p class="card-text">Type:{{resultado.Type}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
